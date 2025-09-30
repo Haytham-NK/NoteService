@@ -5,7 +5,7 @@
 ## Запуск
 Вариант № 1 - запуск с локальной базой данных.
 Для этого варианта вам необходим sql server.
-1. В файле `WebApi/appsettings.json` есть такая строка:
+1. В файле `WebApi/appsettings.json` есть строка, в которой необходимо поменять строку подключения к вашей бд:
  ```json
 {
   "ConnectionStrings": {
@@ -13,20 +13,19 @@
   }
 }
 ```
-В ней необходимо поменять имя сервера.
 2. В терминале небходимо выполнить команду для миграции (для создания бд и таблицы).
 ```bash
 dotnet ef database update --startup-project WebApi/WebApi.csproj --project DataAccess/DataAccess.csproj
 ```
-После запустите сам проект.
+Запустите сам проект командой ниже.
 ```bash
 dotnet run --project WebApi/WebApi.csproj
 ```
-После введите в браузере
-```bash
-dotnet run --project WebApi/WebApi.csproj
+После откройте в браузере.
 ```
-После того как проект запустится в терминале должна выйти команда Now listening on: http://localhost:xxxx (на месте xxxx - будет порт). 
+http://localhost:5000/swagger
+```
+Если у вас по данному адресу не открывается, то в терминале должна выйти команда Now listening on: http://localhost:xxxx (на месте xxxx - будет порт). 
 Далее в браузере необходимо написать http://localhost:xxxx/swagger (на месте xxxx - напишите тот порт, который был указан у вас в терминале).
 
 Вариант № 2 - запуск в Docker.
